@@ -4,36 +4,32 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-class Square extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            clicked: null,
-        };
-    }
-
-    render() {
-        
+function Square(props) {
       return (
-        <button className="square" onClick={() => {this.props.onClick()}}>
-          {this.props.clicked}
+        <button className="square" onClick={() => {props.onClick()}}>
+          {props.value}
         </button>
       );
-    }
   }
+
+
   
   class Board extends React.Component {
     constructor(props){
         super(props);
         this.state = {
             squares: Array(9).fill(null),
+            playerOne: true,
         };
     }
 
     handleClick(i){
         const squares = this.state.squares.slice();
-        squares[i] = 'X';
-        this.setState({squares:squares});
+          squares[i] = this.state.playerOne?'X':'O';
+          this.setState({
+            squares:squares,
+            playerOne: !this.state.playerOne
+          });
     }
 
     renderSquare(i) {
@@ -42,9 +38,20 @@ class Square extends React.Component {
                 onClick = {() => {this.handleClick(i)}}
             />;
     }
+
+    reset(){
+      const squares = this.state.squares.map(s => null);
+      this.setState({
+        squares: squares,
+        playerOne: true,
+      });
+    }
   
     render() {
-      const status = 'Next player: X';
+      const winner = calculateWinner(this.state.squares);
+      
+      const status = winner?
+        "The winner of this game is the '"+winner+"' side":'Next player: '+(this.state.playerOne?'X':'O');
   
       return (
         <div>
@@ -64,6 +71,7 @@ class Square extends React.Component {
             {this.renderSquare(7)}
             {this.renderSquare(8)}
           </div>
+          <button className="reset" onClick={()=>this.reset()}>Reset</button>
         </div>
       );
     }
@@ -91,6 +99,26 @@ class Square extends React.Component {
     <Game />,
     document.getElementById('root')
   );
+
+  function calculateWinner(squares) {
+    const lines = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6],
+    ];
+    for (let i = 0; i < lines.length; i++) {
+      const [a, b, c] = lines[i];
+      if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+        return squares[a];
+      }
+    }
+    return null;
+  }
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
