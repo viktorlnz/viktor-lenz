@@ -1,0 +1,77 @@
+section#section-main{
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+
+}
+
+article > section{
+    width: 90%;
+    margin: 3% 1% 3% 2%;
+    padding: 2%;
+    background-color: rgba(230,230, 255, 0.6);
+
+    border: var(--main-color3) solid 5px;
+    border-radius: 30px;
+}
+
+section a{
+    color: var(--sub-color5);
+    font-weight: bolder;
+}
+
+section a:hover{
+    color: var(--sub-color4);
+}
+
+
+
+
+section h2, section h3, section h4, section h5{
+    color: var(--main-color);
+    text-shadow: 1px -1px var(--main-color4);
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+section h2{
+    font-size: 2.5em;
+}
+
+section h3{
+    font-size: 2em;
+}
+
+section h4{
+    font-size: 1.8em;
+}
+
+section h5{
+    font-size: 1.6em;
+}
+
+section p{
+    font-size: 1.4em;
+}
+
+section p, section li{
+    margin: 0.3%;
+    color: var(--main-color5);
+    line-height: 1.5em;
+}
+
+section li{
+    font-size: 1.2em;
+    margin-left: 10%;
+    margin-bottom: 5px;
+    width: auto;
+}
+
+li ul li{
+    font-size: 1em;
+}
+
+.span-nota{
+    font-weight: bold;
+    color: var(--sub-color4);
+}

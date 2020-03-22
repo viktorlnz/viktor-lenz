@@ -1,13 +1,13 @@
-import React, {useState} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
   
-import Game from './Game';
+import App from './App';
   // ========================================
   
   ReactDOM.render(
-    <Game />,
+    <App/>,
     document.getElementById('root')
   );
 

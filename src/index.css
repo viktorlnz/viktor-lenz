@@ -1,51 +1,24 @@
-body {
-  font: 14px "Century Gothic", Futura, sans-serif;
-  margin: 20px;
+:root{
+  --main-color: #04819E;
+  --main-color2: #38B2CE;
+  --main-color3: #60B9CE;
+  --main-color4: #206676;
+  --main-color5: #015367;
+  --sub-color: #FF7F00;
+  --sub-color2: #FF9F40;
+  --sub-color3: #FFb873;
+  --sub-color4: #BF7730;
+  --sub-color5: #A65200;
 }
 
-ol, ul {
-  padding-left: 30px;
-}
-
-.board-row:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
-.status {
-  margin-bottom: 10px;
-}
-
-.square {
-  background: #fff;
-  border: 1px solid #999;
-  float: left;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 34px;
-  height: 34px;
-  margin-right: -1px;
-  margin-top: -1px;
+*{
+  margin: 0;
   padding: 0;
-  text-align: center;
-  width: 34px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  width: 100%;
+  text-decoration: none;
 }
 
-.square:focus {
-  outline: none;
+#root{
+  background: repeating-linear-gradient( var(--main-color3) 20%, var(--main-color) 38%, var(--main-color3) 63%);
 }
-
-.kbd-navigation .square:focus {
-  background: #ddd;
-}
-
-.game {
-  display: flex;
-  flex-direction: row;
-}
-
-.game-info {
-  margin-left: 20px;
-}
-
